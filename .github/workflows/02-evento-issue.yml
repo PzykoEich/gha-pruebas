@@ -1,6 +1,9 @@
 name: Event issue
 on: 
   push:
+    paths-ignore:
+    - '*.md'
+
   issues:
     types:
       - opened

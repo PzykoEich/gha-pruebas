@@ -1,0 +1,14 @@
+name: Event issue
+on: 
+  push:
+  issues:
+    types:
+      - opened
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hola!!!
+      run: echo "Issue Opened"
+
+    

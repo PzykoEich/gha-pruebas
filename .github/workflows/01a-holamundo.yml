@@ -1,10 +1,7 @@
 # This is a basic workflow that is manually triggered
-
 name: 01a-hola mundo
-
 on:
   workflow_dispatch: # --> Indica que vamos a laznar el workflow de forma manual 
-
 jobs:
   # This workflow contains a single job called "greet"
   greet:

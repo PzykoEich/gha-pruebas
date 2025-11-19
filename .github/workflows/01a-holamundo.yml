@@ -1,0 +1,17 @@
+# This is a basic workflow that is manually triggered
+
+name: 01a-hola mundo
+
+on:
+  workflow_dispatch: # --> Indica que vamos a laznar el workflow de forma manual 
+
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+    # Runs a single command using the runners shell
+    #This is just like a yaml from a playbook 
+    - name: Send greeting
+      run: echo "Hola Mundo!!"

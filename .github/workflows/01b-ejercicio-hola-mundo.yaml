@@ -1,9 +1,6 @@
 # This is a basic workflow that is manually triggered
 name: Este es otro 😅
-on:
-  push:
-    branches:
-        - 'main'
+on: [workflow_dispatch,push]
 jobs:
   # This workflow contains a single job called "greet"
   greet:

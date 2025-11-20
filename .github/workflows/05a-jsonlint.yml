@@ -11,8 +11,13 @@ jobs:
         with:
           sparse-checkout: .
 
+      - name: check node version
+        run: node --version
+
       - name: instalación de jsonlint 
         run: |
+          sudo apt-get update
           sudo apt-get install jsonlint
+          
       - name: validar json
         run : sudo jsonlint-php package.json

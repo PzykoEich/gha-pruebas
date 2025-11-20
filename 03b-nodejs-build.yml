@@ -1,0 +1,18 @@
+name: verificación de node
+on:
+  push:
+    branches: [ 'main' ]
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout/@v5
+    - name: setup node
+      uses: actions/setup-node@v6
+      with:
+        node-version: 20
+    - run: npm ci
+    - run: npm test

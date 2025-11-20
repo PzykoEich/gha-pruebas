@@ -1,0 +1,13 @@
+name: Environment vars 📦
+on:
+  workflow_dispatch:
+jobs:
+  environment-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: new var
+        id: step_one
+        run: echo "random_number=$((1 + RANDOM % 10))" >> "$GITHUB_ENV"
+      - name: print value
+        id: step_two
+        run: printf "X value is $random_number"

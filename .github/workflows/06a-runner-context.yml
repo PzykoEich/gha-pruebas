@@ -5,6 +5,9 @@ jobs:
     runner_context:
         runs-on: ubuntu-latest
         steps:
-          - name: Cheking runner context
+          - name: Runner Context
             run: | 
-              echo "Runner context: ${{ runner }}"
+              echo "Runner name: ${{ runner.name }}"
+              echo "Runner context: ${{ runner.os }}"
+              echo "Runner arch: ${{ runner.arch }}"
+              echo "Runner environment: ${{ runner.environment }}"

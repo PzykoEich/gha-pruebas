@@ -1,0 +1,10 @@
+name: runner context
+on:
+  workflow_dispatch:
+jobs:
+    runner_context:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Cheking runner context
+            run: | 
+              echo "Runner context: ${{ runner }}"

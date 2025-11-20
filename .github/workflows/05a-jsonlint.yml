@@ -1,0 +1,18 @@
+name: verificación de json 
+on:
+  push: 
+  workflow_dispatch:
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: .
+
+      - name: instalación de jsonlint 
+        run: |
+          sudo apt-get install jsonlint
+      - name: validar json
+        run : sudo jsonlint-php package.json

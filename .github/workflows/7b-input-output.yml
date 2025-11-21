@@ -25,9 +25,18 @@ jobs:
         if: ${{ inputs.dice-number == 'dos' }}
         id: dice2
         run: echo "dice2=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
-      - name: show dice 
-        run: |
-          printf "Number one dice: $dice1"
-          printf "Number two dice: ${{ steps.dice2.outputs.dice2 }}"
 
+  show-result:
+    needs:
+        roll-die
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write result 
+        run: |
+          echo "# :Game Die: Result: " >> $GITHUB_STEP_SUMMARY
+          echo dice1: ${{ needs.roll-die.outputs.dice1 }} >> $GITHUB_STEP_SUMMARY
+      - name: something like before 
+        if: ${{ inputs.dice-number == 'two' }}
+        run: |
+          echo dice2: ${{ needs.roll-die.outputs.dice2 }} >> $GITHUB_STEP_SUMMARY
 

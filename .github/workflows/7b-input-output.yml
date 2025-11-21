@@ -24,5 +24,9 @@ jobs:
       - name: generate dice two
         id: dice2
         run: echo "dice2=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
+      - name: show dice 
+        run: |
+          printf "Number one dice: $dice1 "
+          printf "Number two dice: $dice2"
 
 

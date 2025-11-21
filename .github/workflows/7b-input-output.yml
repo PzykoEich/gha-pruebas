@@ -1,6 +1,6 @@
 name: Roll a die
 on:
-  workflow-dispatch:
+  workflow_dispatch:
     inputs:
       dice-number:
         type: choice

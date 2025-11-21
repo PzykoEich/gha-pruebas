@@ -1,0 +1,28 @@
+name: Roll a die
+on:
+  workflow-dispatch:
+    inputs:
+      dice-number:
+        type: choice
+        options:
+          - one
+          - two
+        default: two
+        description: number of dice
+jobs:
+  roll-die:
+    outputs:
+      dice1: ${{ steps.dice1.outputs.dice1 }}
+      dice2: ${{ steps.dice2.outputs.dice }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: So many dice? 
+        run: echo "there's ${{ inputs.dice-number }} dice"
+      - name: generate dice one
+        id: dice1
+        run: echo "dice1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
+      - name: generate dice two
+        id: dice2
+        run: echo "dice2=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
+
+

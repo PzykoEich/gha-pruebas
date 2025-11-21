@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Write result 
         run: |
-          echo "# :Game Die: Result: " >> $GITHUB_STEP_SUMMARY
+          echo "# 🎲 Game Die: Result: " >> $GITHUB_STEP_SUMMARY
           echo dice1: ${{needs.roll-die.outputs.dice1}} >> $GITHUB_STEP_SUMMARY
       - name: something like before 
         if: ${{ inputs.dice-number == 'two' }}

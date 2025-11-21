@@ -20,14 +20,14 @@ jobs:
         run: echo "there's ${{ inputs.dice-number }} dice"
       - name: generate dice one
         id: dice1
-        run: echo "dice1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
+        run: echo "dice1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT" >> "GITHUB_ENV"
       - name: generate dice two
         if: ${{ inputs.dice-number == 'dos' }}
         id: dice2
         run: echo "dice2=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
       - name: show dice 
         run: |
-          printf "Number one dice: $steps.dice1.outputs.dice"
+          printf "Number one dice: $dice1"
           printf "Number two dice: ${{ steps.dice2.outputs.dice2 }}"
 
 

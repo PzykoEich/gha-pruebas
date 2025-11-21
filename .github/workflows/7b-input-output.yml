@@ -13,7 +13,7 @@ jobs:
   roll-die:
     outputs:
       dice1: ${{ steps.dice1.outputs.dice1 }}
-      dice2: ${{ steps.dice2.outputs.dice }}
+      dice2: ${{ steps.dice2.outputs.dice2 }}
     runs-on: ubuntu-latest
     steps:
       - name: So many dice? 
@@ -22,11 +22,12 @@ jobs:
         id: dice1
         run: echo "dice1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
       - name: generate dice two
+        if: ${{ inputs.dice-number == 'dos' }}
         id: dice2
         run: echo "dice2=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
       - name: show dice 
         run: |
-          printf "Number one dice: $dice1 "
-          printf "Number two dice: $dice2"
+          printf "Number one dice: $steps.dice1.outputs.dice"
+          printf "Number two dice: ${{ steps.dice2.outputs.dice2 }}"
 
 

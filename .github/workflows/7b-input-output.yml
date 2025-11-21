@@ -20,7 +20,7 @@ jobs:
         run: echo "there's ${{ inputs.dice-number }} dice"
       - name: generate dice one
         id: dice1
-        run: echo "dice1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT" >> "GITHUB_ENV"
+        run: echo "dice1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
       - name: generate dice two
         if: ${{ inputs.dice-number == 'two' }}
         id: dice2

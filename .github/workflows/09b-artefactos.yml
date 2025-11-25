@@ -20,7 +20,7 @@ jobs:
         with:
           name: reporte-cobertura
           path: |
-            covarage/**/index.js
+            ./index.js
   resumen:
     runs-on: ubuntu-latest
     needs: test

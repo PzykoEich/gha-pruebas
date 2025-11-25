@@ -1,0 +1,22 @@
+name: 08a Control de flujos matriz
+on:
+    workflow_dispatch:
+jobs:
+    build:
+        strategy:
+            matrix:
+                os: [ubntu-22.01, ubuntu-20.04]
+                version: [18,20]
+        runs-on: ${{matrix.os}}
+        steps:
+            - uses: actions/checkout@v6
+            - name: setup node environment
+              uses: actions/setup-node@v4
+              with:
+                node-version: ${{matrix.version}}
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - name: Deploy
+              run: echo "Desplegando... bib bib bob pup bib bip..."

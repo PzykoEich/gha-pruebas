@@ -4,8 +4,9 @@ on:
 jobs:
     build:
         strategy:
+            fail-fast: false #En la ejecución de la matriz si alguno falla continua 
             matrix:
-                os: [ubntu-22.01, ubuntu-20.04]
+                os: [ubuntu-22.01, ubuntu-20.04]
                 version: [18,20]
         runs-on: ${{matrix.os}}
         steps:
@@ -14,6 +15,8 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: ${{matrix.version}}
+            - if: matrix.os == 'ubuntu-22.04' && matrix.version == 20
+              run: exit 1
     deploy:
         runs-on: ubuntu-latest
         needs: build

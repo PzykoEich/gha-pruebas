@@ -35,7 +35,7 @@ jobs:
         id: html2markdown
         uses: rknj/html2markdown@b8edf4ce2aa1309ec7228191634df9b4760d4b07
         with:
-          html-file: "lcov-report/index.js"
+          html-file: "./index.html"
       - name: Escribe resumen
         run: |
           echo "# Reporte de cobertura" >> $GITHUB_STEP_SUMMARY

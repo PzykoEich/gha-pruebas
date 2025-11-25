@@ -6,12 +6,12 @@ jobs:
         strategy:
             fail-fast: false #En la ejecución de la matriz si alguno falla continua 
             matrix:
-                os: [ubuntu-22.01, ubuntu-20.04]
-                version: [18,20]
+                #os: [ubuntu-22.01, ubuntu-20.04]
+                version: [18, 20]
                 exclude:               #
                     - os: ubuntu-22.04 # De la matriz se indica que no haga nada en la versión indicada
                       version: 20      # 
-        runs-on: ${{matrix.os}}
+        runs-on: ubuntu-latest
         continue-on-error: true # En caso de que la tarea falle continua el preoceso como bueno
         steps:
             - uses: actions/checkout@v4

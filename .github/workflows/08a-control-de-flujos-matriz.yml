@@ -12,15 +12,16 @@ jobs:
                     - os: ubuntu-22.04 # De la matriz se indica que no haga nada en la versión indicada
                       version: 20      # 
         runs-on: ${{matrix.os}}
+        continue-on-error: true # En caso de que la tarea falle continua el preoceso como bueno
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v4
             - name: setup node environment
               uses: actions/setup-node@v4
               with:
                 node-version: ${{matrix.version}}
-            - if: matrix.os == 'ubuntu-22.04' && matrix.version == 20
+            - name: salida en condición
+              if: matrix.os == 'ubuntu-22.04' && matrix.version == 20
               run: exit 1
-              continue-on-error: true # En caso de que la tarea falle continua el preoceso como bueno
 
     deploy:
         runs-on: ubuntu-latest

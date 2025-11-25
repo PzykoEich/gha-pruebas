@@ -20,6 +20,9 @@ jobs:
       - run: npm test
       - name: Forzar fallo
         run: exit 1
+      - name: exito
+        if: failure()
+        run: echo "something"
       - if: success()
         run: echo "cosa"
       - if: failure()

@@ -28,8 +28,8 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     outputs:
-      num1: ${{ steps.leer1.outputs.num}}
-      num2: ${{ steps.leer2.outputs.num}}
+      num1: ${{ steps.leer1.outputs.num1}}
+      num2: ${{ steps.leer2.outputs.num2}}
     steps:
       - name: descargar artefacto
         uses: actions/download-artifact@v4

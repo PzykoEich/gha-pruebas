@@ -48,8 +48,8 @@ jobs:
       - name: summary
         run: |
           echo "# aahhhhhh :game_die:" >> $GITHUB_STEP_SUMMARY
-          echo "Dado 1: $(cat dado1.txt)" $GITHUB_STEP_SUMMARY
-          echo "Dado 2: $(cat dado2.txt)" $GITHUB_STEP_SUMMARY
+          echo "Dado 1: $(cat dado1.txt)" >> $GITHUB_STEP_SUMMARY
+          echo "Dado 2: $(cat dado2.txt)" >> $GITHUB_STEP_SUMMARY
           
 
 

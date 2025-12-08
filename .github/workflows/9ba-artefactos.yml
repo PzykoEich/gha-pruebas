@@ -12,6 +12,6 @@ jobs:
           echo "Número generado: $dice1"
           echo $dice1 > dado1.txt
       - name: verifica
-        run: cat dao1.txt
+        run: cat dado1.txt
 
           

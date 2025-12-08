@@ -39,7 +39,7 @@ jobs:
     steps:
         - name: resumen
           run: |
-            echo "# Disque **MarkDown**"
+            echo "# Disque **MarkDown**" >> $GITHUB_STEP_SUMMARY
             echo Dado1: ${{ needs.job2.outputs.num }} >> $GITHUB_STEP_SUMMARY
 
           

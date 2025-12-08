@@ -45,15 +45,12 @@ jobs:
         run: |
             NUM=$(cat dado2.txt)
             echo "num2=$NUM" >> $GITHUB_OUTPUT
+      - name: summary
+        run: |
+          echo "# aahhhhhh :game_die:" >> $GITHUB_STEP_SUMMARY
+          echo "Dado 1: $(cat dado1.txt)" $GITHUB_STEP_SUMMARY
+          echo "Dado 2: $(cat dado2.txt)" $GITHUB_STEP_SUMMARY
           
-  nonecesary:
-    needs: job2
-    runs-on: ubuntu-latest
-    steps:
-        - name: resumen
-          run: |
-            echo "# Disque **MarkDown**" >> $GITHUB_STEP_SUMMARY
-            echo Dado1: ${{ needs.job2.outputs.num1 }} >> $GITHUB_STEP_SUMMARY
-            echo Dado2: ${{ needs.job2.outputs.num2 }} >> $GITHUB_STEP_SUMMARY
+
 
           

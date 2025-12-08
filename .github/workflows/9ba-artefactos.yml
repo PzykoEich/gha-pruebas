@@ -28,17 +28,24 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     outputs:
-      num: ${{ steps.leer.outputs.num}}
+      num1: ${{ steps.leer1.outputs.num}}
+      num2: ${{ steps.leer2.outputs.num}}
     steps:
       - name: descargar artefacto
         uses: actions/download-artifact@v4
         with:
           name: dado1
       - name: mostrar
-        id: leer
+        id: leer1
         run: |
           NUM=$(cat dado1.txt)
-          echo "num=$NUM" >> $GITHUB_OUTPUT
+          echo "num1=$NUM" >> $GITHUB_OUTPUT
+      - name: mostrar 2
+        id: leer2
+        run: |
+            NUM=$(cat dado2.txt)
+            echo "num2=$NUM" >> $GITHUB_OUTPUT
+          
   nonecesary:
     needs: job2
     runs-on: ubuntu-latest
@@ -46,6 +53,7 @@ jobs:
         - name: resumen
           run: |
             echo "# Disque **MarkDown**" >> $GITHUB_STEP_SUMMARY
-            echo Dado1: ${{ needs.job2.outputs.num }} >> $GITHUB_STEP_SUMMARY
+            echo Dado1: ${{ needs.job2.outputs.num1 }} >> $GITHUB_STEP_SUMMARY
+            echo Dado2: ${{ needs.job2.outputs.num2 }} >> $GITHUB_STEP_SUMMARY
 
           

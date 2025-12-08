@@ -1,0 +1,17 @@
+name: 09algo artefactos
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First die
+        id: dice1
+        run: |
+          dice1=$((1 + RANDOM % 6))
+          echo "Número generado: $dice1"
+          echo $dice1 > dado1.txt
+      - name: verifica
+        run: cat dao1.txt
+
+          

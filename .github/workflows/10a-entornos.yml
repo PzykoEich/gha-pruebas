@@ -1,0 +1,12 @@
+name: 10a - entornos
+on:
+  workflow_dispatch:
+jobs:
+  entornos:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+        - name: verificar variables
+          run: echo "${{vars.UNA_VARIABLE}}"
+        - name: Verifica secreto
+          run: echo "${{ secrets.UN_SECRETO }}"

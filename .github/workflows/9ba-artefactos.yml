@@ -9,15 +9,21 @@ jobs:
         id: dice1
         run: |
           dice1=$((1 + RANDOM % 6))
+          dice2=$((1 + RANDOM % 6))
           echo "Número generado: $dice1"
+          echo "Número generado: $dice2"
           echo $dice1 > dado1.txt
+          echo $dice2 > dado2.txt
       - name: verifica
-        run: cat dado1.txt
+        run: | 
+            cat dado1.txt
+            cat dado2.txt
       - name: Archivar artefacto
         uses: actions/upload-artifact@v4
         with:
           name: dado1
-          path: dado1.txt
+          path: ./*.txt
+    
   job2:
     needs: job1
     runs-on: ubuntu-latest

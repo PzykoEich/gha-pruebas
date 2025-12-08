@@ -26,5 +26,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dado1
+      - name: mostrar
+        run: cat dado1.txt
 
           

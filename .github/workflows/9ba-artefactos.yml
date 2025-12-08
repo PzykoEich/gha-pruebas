@@ -18,4 +18,12 @@ jobs:
         with:
           name: dado1
           path: dado1.txt
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: descargar artefacto
+        uses: actions/download-artifact@v4
+        with:
+          name: dado1
+
           

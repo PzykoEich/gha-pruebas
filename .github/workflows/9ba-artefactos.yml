@@ -19,6 +19,7 @@ jobs:
           name: dado1
           path: dado1.txt
   job2:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: descargar artefacto

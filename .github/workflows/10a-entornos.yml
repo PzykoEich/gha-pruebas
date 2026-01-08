@@ -4,7 +4,7 @@ on:
 jobs:
   entornos:
     runs-on: ubuntu-latest
-    environment: prod
+    environment: testing
     steps:
         - name: verificar variables
           run: echo "${{vars.UNA_VARIABLE}}"

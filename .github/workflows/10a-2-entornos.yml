@@ -12,4 +12,6 @@ jobs:
             - name: Verificar variable
               run: echo "${{vars.UNA_VARIABLE}}"
             - name: Verificar secreto
-              run: echo "${{vars.UN_SECRETO}}" 
+              run: echo "${{vars.UN_SECRETO}}"
+              #TEsting
+              

@@ -13,3 +13,4 @@ jobs:
               run: echo "${{vars.UNA_VARIABLE}}"
             - name: Verificar secreto
               run: echo "${{vars.UN_SECRETO}}"
+              

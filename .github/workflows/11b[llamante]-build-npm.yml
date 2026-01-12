@@ -1,0 +1,17 @@
+name: 11b[Llamante] - Ejercicio de workflow call
+on:
+    push:
+        branches: ['main']
+    workflow_dispatch:
+
+jobs:
+    build:
+        uses: ./.github/workflows/11b[llamado]-solucion.yml
+        with:
+            versiones_node: "['16','18','20']"
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - name: despliegue de npm
+              run: echo "Desplegando... "

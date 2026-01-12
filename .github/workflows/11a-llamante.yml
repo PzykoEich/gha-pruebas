@@ -19,4 +19,4 @@ jobs:
             - name: Escribir Resumen para segundo dado
               if: ${{needs.tirada-dados.outputs.dado2}}
               run: | 
-                echo dado2: ${{needs.tirada-dados.outputs.dado2}}
+                echo dado2: ${{needs.tirada-dados.outputs.dado2}} >> $GITHUB_STEP_SUMMARY

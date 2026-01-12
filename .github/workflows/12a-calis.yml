@@ -1,0 +1,22 @@
+name: 12a intento de flujo
+on:
+    workflow_dispatch:
+        inputs:
+            node-version:
+                required: true
+                type: string
+                default: 20
+                description: "Versión de node deseada:"
+jobs: 
+    lanzamiento:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Acciones
+              uses: actions/checkout/@v5
+            - name: setup node
+              uses: actions/setup-node@v6
+              with:
+                node-version: ${{inputs.node-version}}
+            - run: npm ci
+            - run: npm test
+            

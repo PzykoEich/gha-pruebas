@@ -12,6 +12,7 @@ on:
                 value: ${{jobs.tirada.outputs.dado1}}
             dado2:
                 value: ${{jobs.tirada.outputs.dado2}}
+    workflow_dispatch:
 jobs:
     tirada:
         outputs:
@@ -25,7 +26,7 @@ jobs:
             - name: Generar dado 1
               id: dado1
               run: echo "dado1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
-              
+
             - name: Genera dado 2
               if: ${{ inputs.numero-dados == 'dos'}}
               id: dado2

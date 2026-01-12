@@ -21,9 +21,11 @@ jobs:
         steps:
             - name: ¿Cuántos dados?
               run: echo "Hay ${{inputs.numero-dados}} dados"
+
             - name: Generar dado 1
               id: dado1
-              run: echo " dado1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
+              run: echo "dado1=$((1 + RANDOM % 6))" >> "$GITHUB_OUTPUT"
+              
             - name: Genera dado 2
               if: ${{ inputs.numero-dados == 'dos'}}
               id: dado2
